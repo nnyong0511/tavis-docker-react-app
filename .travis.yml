@@ -14,3 +14,14 @@ before_install:
 
 after_success:
   - echo "Test success"
+
+##배포 관련
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "tavis-docker-react-app"
+  env: "Tavisdockerreactapp-env-2"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-445811043890"
+  bucket_path: "tavis-docker-react-app"
+  on:
+    branch: master
