@@ -10,8 +10,14 @@ before_install:
   - echo "start creating an image with dockerfile"
   - docker build -t nnyong/tavis-docker-react-app -f Dokerfile.dev .
 #run test -> test 끝나면 exit(-e)
-  script:
+script:
   - docker run -e CI=true nnyong/tavis-docker-react-app npm run test -- --coverage
+
+#Travis CI 실행 완료 시 자동으로 알람이 가도록 설정 가능
+notifications:
+  email:
+    recipients:
+      - nnyong6782@gmail.com
 
 after_success:
   - echo "Test success"
