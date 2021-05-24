@@ -1,14 +1,15 @@
+# 권한
 sudo: required
-
-language: generic
-
+#사용 언어
+language: node_js
+#docker
 services:
   - docker
 
 before_install:
   - echo "start creating an image with dockerfile"
   - docker build -t nnyong/tavis-docker-react-app -f Dokerfile.dev .
-
+#run test -> test 끝나면 exit(-e)
   script:
   - docker run -e CI=true nnyong/tavis-docker-react-app npm run test -- --coverage
 
