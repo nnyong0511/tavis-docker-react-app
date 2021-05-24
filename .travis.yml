@@ -9,7 +9,7 @@ services:
 before_install:
   - echo "start creating an image with dockerfile"
   - docker build -t nnyong/tavis-docker-react-app -f Dokerfile.dev .
-#run test -> test 끝나면 exit(-e)
+#run -> test 끝나면 exit(-e)
 script:
   - docker run -e CI=true nnyong/tavis-docker-react-app npm run test -- --coverage
 
